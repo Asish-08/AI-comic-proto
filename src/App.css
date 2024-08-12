@@ -1,38 +1,121 @@
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  padding-bottom: 50px; /* Extra space at the bottom */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 376px);
+  grid-template-rows: repeat(2, 445px);
+  gap: 10px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 20px;
+  border: 2px solid #ccc;
+  position: relative;
+  width: 376px;
+  height: 445px;
+}
+
+.uploaded-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Style for the comic-style speech bubble */
+.speech-bubble {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px; /* Double the previous size */
+  height: 80px; /* Double the previous size */
+  background: white;
+  border-radius: 50%; /* Half of the height for ellipse shape */
+  padding: 20px; /* Increase padding for larger bubble */
+  font-size: 18px; /* Larger text for larger bubble */
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  color: black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Tail of the speech bubble */
+.speech-tail {
+  position: absolute;
+  bottom: -20px; /* Adjusted for larger bubble */
+  left: 65%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent; /* Adjusted size */
+  border-right: 20px solid transparent; /* Adjusted size */
+  border-top: 30px solid white; /* Adjusted size */
+  z-index: 10;
+  transform: rotate(-15deg);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Style for the Speech Bubbles button */
+.speech-bubble-button {
+  position: absolute;
+  right: 20px;
+  top: 70px;
+  background-color: #28a745;
   color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+.speech-bubble-button:hover {
+  background-color: #218838;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Hide file input */
+.single-upload-button {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  opacity: 0;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Style for upload label */
+.upload-label {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.upload-label:hover {
+  background-color: #0056b3;
 }
